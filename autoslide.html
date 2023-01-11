@@ -1,0 +1,161 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Slideshow 2</title>
+    <style>
+       
+        body{
+            padding:100px;
+            background: #4c4c4c;
+        }
+        #hlo{
+            margin:100px auto 20px auto;
+            border:10px solid black;
+            width:500px;
+            height:266px;
+            position: relative;
+            border-width:10px;
+            border-radius: 3px;
+        }
+        #hlo img{
+            position: absolute;
+            left:0;
+            top:0;
+            width:500px;
+            height:270px;
+
+        }
+        #hlo:hover{
+            border-color:white;
+        }
+        p{
+            text-align: center;
+            width:520px;
+            color:black;
+            background-color: red;
+            display:flex;
+            margin:auto;
+            border-radius: 30px;
+            margin-top: 30px;
+            border:5px solid wheat;
+            
+        }
+        p:hover{
+            background-color: aqua;
+            border-color: black;
+        }
+        #prev{
+            
+            text-align: center;
+            font-size: 20px;
+            color:black;
+            margin-left: 30px;
+            text-decoration: solid;
+            font-weight: 500px;
+            border:2px solid black;
+            text-decoration: dashed;
+            background-color: aqua;
+             
+        }
+        #prev:hover{
+            color:white;
+            background-color: red;
+            font-weight: 500;
+        }
+      
+        #next{
+            text-align: center;
+            font-size: 20px;
+            color:black;
+            margin-left: 300px;
+            text-decoration: solid;
+            font-weight: 500px;
+            border:2px solid black;
+            text-decoration: dashed;
+            background-color: aqua;
+
+
+        }
+        #next:hover{
+            color:white;
+            background-color: red;
+            font-weight: 500;
+        }
+        h1{
+            padding:top;
+            position: relative;
+            text-align: center;
+            margin-bottom: -20px;
+            float:top;
+            margin-right:310px;
+            margin-left: 300px;
+            border-style: groove;
+            border-color: black;
+            border-width:10px;
+
+        }
+        h1:hover{
+            color:white;
+            background-color: black;
+            border-color: white;
+        }
+        .fadeimg{
+            animation:fadein 5s;
+
+        }
+        @keyframes fadein {
+            from{
+                opacity:0;
+            }
+            to{
+                opacity:1;
+            }
+            
+        }
+    </style>
+</head>
+<body>
+    <h1> JAVASCRIPT SLIDESHOW</h1>
+    <div id="hlo">
+        <img src="52447.jpg" alt="img1" id="image">
+
+    </div>
+    <p id="para"><a href="#" id="prev">PREVIOUS</a><a href="#" id="next">NEXT</a></p>
+    <script>
+        var myimgs=['0-1-racing car.jpg','cool1.jpg','cute.jpg','dark deer.jpg','ff3.jpg','galixy wolf.jpg','gaming.jpg'];
+        var count=0;
+        var dhiv=document.getElementById('hlo');
+        var images=document.getElementById('image');
+        var pre=document.getElementById('prev');
+        var nxt=document.getElementById('next');
+        nxt.addEventListener('click',function(ev){
+                ev.preventDefault();
+                
+                count++;
+                if(count>myimgs.length-1){
+                    count=0;
+                }
+                swapimg();           
+
+        });
+        pre.addEventListener('click',function(ev){
+            ev.preventDefault();
+            count--;
+            if(count<0){
+                count=myimgs.length-1;
+            }
+            swapimg();
+           
+        });
+        function swapimg(){
+            var newsli=document .createElement('img');
+            newsli.src=myimgs[count];
+            newsli.className='fadeimg';
+            dhiv.appendChild(newsli);
+        }
+        </script>
+</body>
+</html>
